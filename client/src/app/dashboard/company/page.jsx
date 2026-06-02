@@ -1,9 +1,12 @@
+import { MyCompanies } from '@/component/dashboard/Company';
+import { HeaderSection } from '@/component/dashboard/CompanyHeader';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            Company
+            <HeaderSection></HeaderSection>
+            <MyCompanies></MyCompanies>
         </div>
     );
 };
