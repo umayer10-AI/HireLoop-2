@@ -1,5 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
+import { Description, Label, Radio, RadioGroup } from "@heroui/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -118,6 +119,29 @@ const SignUpPage = () => {
               className="w-full bg-[#1a1a1a] border border-gray-700 rounded-xl px-4 py-3 text-white outline-none focus:border-purple-500 transition"
             />
           </div>
+
+          <div className="flex flex-col gap-4">
+      <Label>Subscription plan</Label>
+      <RadioGroup defaultValue="pro" name="plan-orientation" orientation="horizontal">
+        <Radio selected value="seeker">
+          <Radio.Control>
+            <Radio.Indicator />
+          </Radio.Control>
+          <Radio.Content>
+            <Label>Job Seeker</Label>
+          </Radio.Content>
+        </Radio>
+        <Radio value="reqruiter">
+          <Radio.Control>
+            <Radio.Indicator />
+          </Radio.Control>
+          <Radio.Content>
+            <Label>Recruiter</Label>
+          </Radio.Content>
+        </Radio>
+
+      </RadioGroup>
+    </div>
 
           <button
             type="submit"
