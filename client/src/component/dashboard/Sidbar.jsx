@@ -88,7 +88,7 @@ const NavItem = ({ label, href, icon: Icon, active }) => {
   return (
     <Link
       href={href}
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+      className={`flex items-center gap-3 px-4 py-2 rounded-xl transition-all duration-200 ${
         active
           ? "bg-linear-to-r from-purple-500 to-pink-500 text-white"
           : "text-gray-300 hover:bg-[#1f1f1f] hover:text-white"

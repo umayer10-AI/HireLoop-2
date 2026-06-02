@@ -5,7 +5,7 @@ const layout = ({children}) => {
     return (
         <div className='flex'>
                 <Sidebar></Sidebar>
-            <div className='w-full'>
+            <div className='w-[80%] mx-auto'>
                 {children}
             </div>
         </div>
