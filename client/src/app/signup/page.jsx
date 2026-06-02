@@ -2,22 +2,30 @@
 import { authClient } from "@/lib/auth-client";
 import { Description, Label, Radio, RadioGroup } from "@heroui/react";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUpPage = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+  const [r, setR] = useState('seeker')
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
+  defaultValues: {
+    role: "seeker",
+  }});
 
     const a = async (v) => {
         console.log(v)
+        console.log(r)
 
         const { data, error } = await authClient.signUp.email({
             name: v.name,
             email: v.email,
             password: v.password,
             image: v.image,
+            role: r,
             callbackURL: "/",
         });
 
@@ -122,8 +130,8 @@ const SignUpPage = () => {
 
           <div className="flex flex-col gap-4">
       <Label>Subscription plan</Label>
-      <RadioGroup defaultValue="pro" name="plan-orientation" orientation="horizontal">
-        <Radio selected value="seeker">
+      <RadioGroup defaultValue="seeker" name="role" orientation="horizontal" onChange={(e) => setR(e)}>
+        <Radio value="seeker">
           <Radio.Control>
             <Radio.Indicator />
           </Radio.Control>
@@ -131,7 +139,7 @@ const SignUpPage = () => {
             <Label>Job Seeker</Label>
           </Radio.Content>
         </Radio>
-        <Radio value="reqruiter">
+        <Radio value="recruiter">
           <Radio.Control>
             <Radio.Indicator />
           </Radio.Control>
