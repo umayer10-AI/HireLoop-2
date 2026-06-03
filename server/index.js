@@ -32,14 +32,17 @@ const run = async () => {
         //     res.send(result)
         // })
 
-        app.get('/user', async (req,res) => {
-            const query = req.query
-            if(query.companyName){
+        app.get('/user/jobs', async (req,res) => {
+            const query = {}
+            if(req.query.companyName){
                 query.companyName = req.query.companyName
             }
-            console.log(query.companyName)
-            // const result = await userCollection.find().toArray()
-            // res.send(result)
+            if(req.query.status){
+                query.status = req.query.status
+            }
+            console.log(query.companyName,query.status)
+            const result = await userCollection.find(query).toArray()
+            res.send(result)
         })
 
         app.post('/user', async (req,res) => {
