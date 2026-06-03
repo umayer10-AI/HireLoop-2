@@ -38,6 +38,7 @@ export const RecentApplications = () => {
 
     fetchData();
   }, []);
+  
 
   return (
     <div className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800">
@@ -71,9 +72,7 @@ export const RecentApplications = () => {
           <span>{app.industry}</span>
 
           <span
-            className={`px-3 py-1 rounded-full text-xs w-fit ${
-              app.color || "bg-gray-700 text-gray-300"
-            }`}
+            className={`px-3 py-1 rounded-full text-xs w-fit ${app.color || "bg-gray-700 text-gray-300"}`}
           >
             {app.status}
           </span>
