@@ -9,10 +9,14 @@ export const CompanyRegistrationModal = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    const v = {
+      ...data,
+      status: "active"
+    }
+    console.log(v);
     setIsOpen(false);
     reset();
-    await postData(data)
+    await postData(v)
   };
 
   return (
